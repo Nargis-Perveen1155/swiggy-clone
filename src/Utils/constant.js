@@ -1,0 +1,3 @@
+export let RESTAURANT_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3522446&lng=78.4891562&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+// export let SINGLE_RESTAURANT_API = "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.775185&lng=86.17815&restaurantId=304302&catalog_qa=undefined&submitAction=ENTER"
+export let IMAGE_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

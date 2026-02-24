@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RESTAURANT_API } from "../Utils/constant";
 import Sorted from "./Sorted";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import HotelListContext from "../Utils/HotelListContext";
 
 const RestaurantCont = () => {
-  let [RestaurantData, setRestaurantData] = useState([]);
-  let [rating, setRating] = useState(0);
+  // let [RestaurantData, setRestaurantData] = useState([]);
+  // let [rating, setRating] = useState(0);
+  const { hotelList, setHotelList, filteredHotelList, setFilteredHotelList } =
+    useContext(HotelListContext);
 
   async function fetchData(url) {
     const data = await fetch(url);
@@ -17,7 +20,11 @@ const RestaurantCont = () => {
         ?.restaurants,
       "===================",
     );
-    setRestaurantData(
+    setHotelList(
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
+    setFilteredHotelList(
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
@@ -29,25 +36,30 @@ const RestaurantCont = () => {
 
   //* filter functionality --------------------------------------------
 
-  const handleRating = (e) => {
-    setRating(e.target.value);
-  };
+  // const handleRating = (e) => {
+  //   setRating(e.target.value);
+  // };
 
-  let ratingFilterData = RestaurantData.filter((elem) => {
-    // console.log(elem, "****************************");
-    return elem.info.avgRating >= rating;
-  });
-  if (RestaurantData.length == 0) {
+  // let ratingFilterData = RestaurantData.filter((elem) => {
+  //   // console.log(elem, "****************************");
+  //   return elem?.info?.avgRating >= rating;
+  // });
+
+  if (hotelList.length == 0) {
     return <Shimmer />;
   }
 
   return (
     <div id="rest-cont">
-      <Sorted handleRating={handleRating} rating={rating} />
+      {/* <Sorted handleRating={handleRating} rating={rating} /> */}
+      <Sorted/>
       <div id="hotel-list">
-        {ratingFilterData.map((elem) => (
+        {filteredHotelList.map((elem) => (
           // console.log(elem.info,"oooooooooo")
-          <Link id="links" to={`/restaurant/${elem.info.id}`}><RestaurantCard key={elem.info.id} cardData={elem.info} /></Link>
+          // <RestaurantCard key={elem.info.id} cardData={elem.info} />
+          <Link id="links" to={`/restaurant/${elem?.info?.id}`}>
+            <RestaurantCard key={elem?.info?.id} cardData={elem?.info} />
+          </Link>
         ))}
       </div>
     </div>

@@ -58,7 +58,7 @@ body {
   border-radius: 50%;
 }
 #search-cont {
-  width: 50%;
+  width: 40%;
   /* background-color: red; */
 }
 #search-cont input {
@@ -70,18 +70,19 @@ body {
   word-spacing: 5px;
 }
 #nav-item-cont {
-  width: 30%;
+  width: 40%;
   /* background-color: rgb(241, 175, 175); */
 }
 #nav-item-cont ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
 }
 #nav-item-cont ul li {
   /* background-color: gray; */
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 20px;
   list-style-type: none;
 }
@@ -89,6 +90,11 @@ body {
   background-color: #fc8019;
 
   color: white;
+}
+#nav-item-cont .linkss{
+  text-decoration: none;
+  color: black;
+ 
 }
 /* ---------------------- restaurant body */
 
@@ -244,6 +250,7 @@ body {
 
 .green-star {
   background-color: green;
+  margin-right: 3px;
   font-size: 15px;
   padding: 2px 4px;
   border-radius: 50%;
@@ -634,3 +641,109 @@ background-color: aquamarine;
   color: white; 
   text-align: center;
 }
+
+/** single Restaurant page detail------------------------------*/
+
+.res-detail-wrapper{
+  height: auto;
+  width: 100%;
+  display: flex;
+  /* background-color: yellow; */
+  justify-content: center;
+  align-items: flex-start;
+  /* margin-top: 60px; */
+
+
+}
+.res-name{
+  font-size: 28px;
+  margin-top: 20px;
+
+}
+.res-detail-box1{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  /* background-color: red; */
+  height: 250px;
+  width: 800px;
+  border: 20px solid rgb(234, 231, 231);
+  padding: 18px;
+  border-radius: 30px;
+
+}
+.cuisine{
+  color: #fc8019;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.outlet{
+  margin-top: 10px;
+  font-size: 14px;
+}
+.delivery{
+  margin-top: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.last-part{
+  margin-top: 15px;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+
+}
+.last-part img{
+  color: #fc8019;
+  width: 50px;
+  margin-right: 10px;
+}
+.last-part h3{
+  font-size: 15px;
+  color: #fc8019;
+}
+
+/** Error Page=-------------------------------*/
+ .error-page-cont{
+  margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+ }
+ .error-page-cont h1{
+color: #fc8019;
+font-size: 35px;
+
+ }
+ .error-page-cont button{
+  padding: 12px 30px;
+  background-color: #fc8019;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+ }
+  .error-page-cont p{
+    font-size: 20px;
+  }
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px;
+  color: black;
+  background-color: antiquewhite;
+  padding: 15px;
+  padding: 15px 25px;
+  box-shadow: #0000002a 0px 0px 10px 2px;
+}
+
+.category-header:hover {
+  background-color: rgb(246, 220, 186);
+  cursor: pointer;
+  }

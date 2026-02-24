@@ -1,8 +1,29 @@
 // import { useState } from "react";
 
+import { useContext, useState } from "react";
+import HotelListContext from "../Utils/HotelListContext";
 
 
-const Sorted = ({rating, handleRating }) => {
+
+const Sorted = () => {
+  const [rating, setRating] = useState(0)
+  //  const [filterToggle, setFilterToggle] = useState(false);
+  let {hotelList,  setFilteredHotelList} = useContext(HotelListContext)
+
+ const handleRating = (e) => {
+  const value = Number(e.target.value); // convert string → number
+  setRating(value);
+
+  if (value === 0) {
+    setFilteredHotelList(hotelList);
+  } else {
+    const ratingFilterData = hotelList.filter(
+      (hotel) => hotel?.info?.avgRating >= value
+    );
+
+    setFilteredHotelList(ratingFilterData);
+  }
+};
    
 
   return (

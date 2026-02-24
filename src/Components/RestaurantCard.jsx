@@ -2,12 +2,12 @@ import { IMAGE_URL } from "../Utils/constant";
 
 const RestaurantCard = ({ cardData }) => {
 
-  const handleCart = ()=>{
-    console.log("click btn")
+  // const handleCart = ()=>{
+  //   console.log("click btn")
     
 
 
-  }
+  // }
 
   return (
     <div id="rest-card-cont">
@@ -29,9 +29,9 @@ const RestaurantCard = ({ cardData }) => {
         <p className="light-color">{cardData.cuisines.join(",")}</p>
         <p className="light-color">{cardData.locality}</p>
       </div>
-      <div id="add-cart-btn">
+      {/* <div id="add-cart-btn">
         <button onClick={handleCart}>Add to cart</button>
-      </div>
+      </div> */}
       </div>
     </div>
   );

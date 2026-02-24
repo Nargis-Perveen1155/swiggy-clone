@@ -8,11 +8,14 @@ import About from "./Pages/About.jsx";
 import Contact from "./Pages/Contact.jsx";
 import Cart from "./Pages/Cart.jsx";
 import RestaurantPage from "./Components/RestaurantPage.jsx";
+// import { useRouteError } from "react-router-dom";
+import ErrorPage from "./Components/ErrorPage.jsx";
 
 const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "/",
@@ -33,8 +36,11 @@ const AppRouter = createBrowserRouter([
       {
         path:"/restaurant/:resId",
         element:<RestaurantPage/>
-      }
+      },
+     
+
     ],
+
   },
 ]);
 

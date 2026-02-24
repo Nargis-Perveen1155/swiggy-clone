@@ -20,10 +20,6 @@
 //   );
 // };
 
-import { Outlet } from "react-router-dom";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-
 // import { Outlet } from "react-router-dom";
 
 //* second way (example how it work behind the scene)
@@ -60,12 +56,22 @@ import Header from "./Components/Header";
 //   );
 // };
 
+import { Outlet } from "react-router-dom";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import HotelListContext from "./Utils/HotelListContext";
+import { useState } from "react";
+
 const App = () => {
+  let [hotelList, setHotelList] = useState([])
+  let [filteredHotelList, setFilteredHotelList] = useState([])
   return (
     <div>
-      <Header />
-      <Outlet/>
-      <Footer />
+      <HotelListContext.Provider value={{hotelList, setHotelList, filteredHotelList, setFilteredHotelList}}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </HotelListContext.Provider>
     </div>
   );
 };

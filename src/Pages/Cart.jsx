@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Cart = () => {
+const Cart = ({cart}) => {
+	console.log(cart, "cartttttttttttttttttttttt data")
   return (
 	<div>
-	  <h1>I am cart page</h1>
+		<h1>Cart page</h1>
+	  {}
 	</div>
   )
 }

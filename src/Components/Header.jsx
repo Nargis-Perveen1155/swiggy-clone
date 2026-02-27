@@ -7,7 +7,7 @@ const Header = () => {
   let [search, setSearch] = useState("");
   let isOnline = UseOnlineStatus();
 
-  const { hotelList, setHotelList, filteredHotelList, setFilteredHotelList } =
+  const { hotelList,  setFilteredHotelList } =
     useContext(HotelListContext);
 
   //* searching functionality--------------------------------

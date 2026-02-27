@@ -10,6 +10,7 @@ import Cart from "./Pages/Cart.jsx";
 import RestaurantPage from "./Components/RestaurantPage.jsx";
 // import { useRouteError } from "react-router-dom";
 import ErrorPage from "./Components/ErrorPage.jsx";
+import AddOns from "./Components/AddOns.jsx";
 
 const AppRouter = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const AppRouter = createBrowserRouter([
         path:"/restaurant/:resId",
         element:<RestaurantPage/>
       },
+      {
+        path:"/addons",
+        element:<AddOns/>
+      }
      
 
     ],

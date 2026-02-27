@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
 import RestCategory from "./RestCategory";
 import { useState } from "react";
+import MenuShimmer from "./MenuShimmer";
 
 const RestaurantPage = () => {
   const { resId } = useParams();
@@ -9,8 +10,12 @@ const RestaurantPage = () => {
   const [showIndex, setShowIndex] = useState(null);
 
   if (!menu) {
-    return <h1 style={{ padding: "200px" }}>Loading...</h1>;
+    // return <h1 style={{ padding: "200px" }}>Loading...</h1>;
+    return <MenuShimmer/>
+    
   }
+  // const addOns = 
+  
 
   // restro info
   const restData =
@@ -59,7 +64,7 @@ const RestaurantPage = () => {
         </div>
       </div>
 
-      {/* ✅ Accordion (Your UI + Working Logic) */}
+      {/* Accordion logic */}
       {categories.map((category, index) => (
         <RestCategory
           key={category?.card?.card?.categoryId}
@@ -97,12 +102,12 @@ export default RestaurantPage;
 //     return <h1 style={{ padding: "200px" }}>Loading...</h1>;
 //   }
 
-//   // ✅ Get restaurant info safely
+//   //  Get restaurant info safely
 //   const restaurantInfo =
 //     menu?.data?.cards?.find((card) => card?.card?.card?.info)?.card?.card
 //       ?.info;
 
-//   // ✅ Dynamically find groupedCard
+//   //  Dynamically find groupedCard
 //   const regularCard = menu?.data?.cards?.find(
 //     (card) => card?.groupedCard
 //   );

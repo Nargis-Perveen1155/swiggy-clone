@@ -7,8 +7,8 @@ const Footer = () => {
 	<div id="footer-main-container">
 	  <div id="footer-cont">
 		<div id="foot-img-cont">
-		  <img src="https://ik.imagekit.io/z5jdpqno5/footer-logo.svg" alt="" />
-		  <h4>© 2025 Swiggy Limited</h4>
+		  {/* <img src="https://ik.imagekit.io/z5jdpqno5/footer-logo.svg" alt="" /> */}
+		  <h4 style={{color:"orange", fontSize:"30px", fontWeight:"800px"}}>© 2025 Food Limited</h4>
 		</div>
 		<div id="foot-content">
 		  <div>

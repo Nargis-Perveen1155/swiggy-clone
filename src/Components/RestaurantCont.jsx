@@ -1,40 +1,42 @@
-import { useContext, useEffect, useState } from "react";
+
 import { RESTAURANT_API } from "../Utils/constant";
 import Sorted from "./Sorted";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import HotelListContext from "../Utils/HotelListContext";
+import useCardApi from "../Utils/useCardApi";
 
 const RestaurantCont = () => {
-  // let [RestaurantData, setRestaurantData] = useState([]);
-  // let [rating, setRating] = useState(0);
-  const { hotelList, setHotelList, filteredHotelList, setFilteredHotelList } =
-    useContext(HotelListContext);
+  
+  // const { hotelList, filteredHotelList} =
+  //   useContext(HotelListContext);
 
-  async function fetchData(url) {
-    const data = await fetch(url);
-    let jsonData = await data.json();
-    console.log(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-      "===================",
-    );
-    setHotelList(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-    setFilteredHotelList(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-  }
+    const { hotelList, filteredHotelList}  = useCardApi()
 
-  useEffect(() => {
-    fetchData(RESTAURANT_API);
-  }, []);
+  // async function fetchData(url) {
+  //   const data = await fetch(url);
+  //   let jsonData = await data.json();
+  //   console.log(
+  //     jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+  //       ?.restaurants,
+  //     "===================",
+  //   );
+  //   setHotelList(
+  //     jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+  //       ?.restaurants,
+  //   );
+  //   setFilteredHotelList(
+  //     jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+  //       ?.restaurants,
+  //   );
+  // }
 
-  //* filter functionality --------------------------------------------
+  // useEffect(() => {
+  //   fetchData(RESTAURANT_API);
+  // }, []);
+
+  //* filter functionality  --------------------------------------------
 
   // const handleRating = (e) => {
   //   setRating(e.target.value);

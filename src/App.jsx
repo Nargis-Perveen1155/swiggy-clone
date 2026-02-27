@@ -65,9 +65,10 @@ import { useState } from "react";
 const App = () => {
   let [hotelList, setHotelList] = useState([])
   let [filteredHotelList, setFilteredHotelList] = useState([])
+  let[selectedCity, setSelectedCity] = useState([])
   return (
     <div>
-      <HotelListContext.Provider value={{hotelList, setHotelList, filteredHotelList, setFilteredHotelList}}>
+      <HotelListContext.Provider value={{hotelList, setHotelList, filteredHotelList, setFilteredHotelList,selectedCity, setSelectedCity}}>
         <Header />
         <Outlet />
         <Footer />

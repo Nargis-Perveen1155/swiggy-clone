@@ -7,11 +7,12 @@ import HotelListContext from "../Utils/HotelListContext";
 
 const Sorted = () => {
   const [rating, setRating] = useState(0)
+  // const[selectedCity, setSelectedCity] = useState("")
   //  const [filterToggle, setFilterToggle] = useState(false);
-  let {hotelList,  setFilteredHotelList} = useContext(HotelListContext)
+  let {hotelList,  setFilteredHotelList, selectedCity, setSelectedCity} = useContext(HotelListContext)
 
  const handleRating = (e) => {
-  const value = Number(e.target.value); // convert string → number
+  const value = Number(e.target.value); 
   setRating(value);
 
   if (value === 0) {
@@ -24,6 +25,11 @@ const Sorted = () => {
     setFilteredHotelList(ratingFilterData);
   }
 };
+
+const handleChange = (e) =>{
+setSelectedCity(e.target.value)
+console.log("location chnged", e.target.value)
+}
    
 
   return (
@@ -34,13 +40,13 @@ const Sorted = () => {
       <select
         name="address"
         id="add-option"
-        // onChange={handleChange}
-        // value={selectedCity}
+        onChange={handleChange}
+        value={selectedCity}
       >
-        <option value="Malakpet">Malakpet</option>
-        <option value="High-tech city">High-tech city</option>
-        <option value="Nampally">Nampally</option>
-        <option value="Gachhibowli">Gachhibowli</option>
+        <option value="MALAKPET">MALAKPET</option>
+        <option value="HIGHTECH_CITY">HIGHTECh_CITY</option>
+        {/* <option value="Nampally">Nampally</option>
+        <option value="Gachhibowli">Gachhibowli</option> */}
       </select>
       <select name="Rating" id="rating-opt" value={rating} onChange={handleRating}> 
         <option value={0}>All</option>

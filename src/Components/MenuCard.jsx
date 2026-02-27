@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+
+import AddOns from "./AddOns";
+import { useNavigate } from "react-router-dom";
 
 const MenuCard = ({ menuItem }) => {
-
-	
-
-
   
+  const navigate = useNavigate();
+
+  const handleShowAddOns = () => {
+    navigate("/addons");
+  };
 
   return (
     <div
@@ -14,8 +17,10 @@ const MenuCard = ({ menuItem }) => {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        padding: "20px 20px",
-        marginTop: "10px",
+        padding: "25px 25px",
+        // gap:"10px",
+        // marginTop: "px",
+        // marginBottom:"10px",
         borderRadius: "20px",
       }}
     >
@@ -29,6 +34,7 @@ const MenuCard = ({ menuItem }) => {
           //   border: "2px solid black",
           padding: "20px 20px",
           borderRadius: "15px",
+          paddingBottom: "10px",
         }}
       >
         <div
@@ -41,14 +47,14 @@ const MenuCard = ({ menuItem }) => {
           }}
         >
           <div>
-          <img
-  style={{ width: "180px", height: "180px", borderRadius: "20px" }}
-  src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${menuItem?.imageId}`}
-  alt={menuItem?.name}
-/>
+            <img
+              style={{ width: "180px", height: "180px", borderRadius: "20px" }}
+              src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${menuItem?.imageId}`}
+              alt={menuItem?.name}
+            />
           </div>
           <button
-            // onClick={handleAddToCart}
+            onClick={handleShowAddOns}
             style={{
               fontSize: "16px",
               position: "absolute",
@@ -65,9 +71,14 @@ const MenuCard = ({ menuItem }) => {
             ADD
           </button>
         </div>
-        <div>
-          <h2>Name: {menuItem?.name}</h2>
-          <h4>Price: ₹{menuItem.price ? menuItem.price / 100 : menuItem.defaultPrice / 100}</h4>
+        <div style={{width:"calc(100% - 200px)",display:"flex", flexDirection:"column", gap:"10px" }}>
+          <h2 style={{fontSize:"18px",}}>Name: {menuItem?.name}</h2>
+          <h4>
+            Price: ₹
+            {menuItem.price
+              ? menuItem.price / 100
+              : menuItem.defaultPrice / 100}
+          </h4>
           <h4>
             Rating : {menuItem?.ratings?.aggregatedRating?.rating}.(
             {menuItem?.ratings?.aggregatedRating?.ratingCount})
@@ -77,6 +88,7 @@ const MenuCard = ({ menuItem }) => {
           </p>
         </div>
       </div>
+      <AddOns />
     </div>
   );
 };

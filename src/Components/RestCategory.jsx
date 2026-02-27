@@ -1,8 +1,8 @@
-// import MenuItem from "./MenuItem";
-import { useState } from "react";
+
+
 import MenuCard from "../Components/MenuCard"
 
-const RestCategory = ({ category, showItems, setIndex, dummyData }) => {
+const RestCategory = ({ category, showItems, setIndex,  }) => {
 
 
   const handleClick = () => {
@@ -16,7 +16,7 @@ const RestCategory = ({ category, showItems, setIndex, dummyData }) => {
         <span>
           {category.title} ({category.itemCards.length})
         </span>{" "}
-        <span>⬇️</span>
+        {showItems ? <span>▲ </span> : <span>▼</span> }
       </div> 
 
       {/* Accordion Body */}
@@ -28,7 +28,6 @@ const RestCategory = ({ category, showItems, setIndex, dummyData }) => {
               <MenuCard
                 key={itemCard.card.info.id}
                 menuItem={itemCard.card.info}
-                dummyData={dummyData}
               />
             );
           })}

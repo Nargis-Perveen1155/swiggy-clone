@@ -6,9 +6,7 @@ const MenuCard = ({ menuItem }) => {
   
   const navigate = useNavigate();
 
-  const handleShowAddOns = () => {
-    navigate("/addons");
-  };
+ 
 
   return (
     <div

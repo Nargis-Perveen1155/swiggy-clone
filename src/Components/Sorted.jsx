@@ -45,8 +45,8 @@ console.log("location chnged", e.target.value)
       >
         <option value="MALAKPET">MALAKPET</option>
         <option value="HIGHTECH_CITY">HIGHTECh_CITY</option>
-        {/* <option value="Nampally">Nampally</option>
-        <option value="Gachhibowli">Gachhibowli</option> */}
+        <option value="FALAKNUMA">FALAKNUMA</option>
+         {/*<option value="Gachhibowli">Gachhibowli</option> */}
       </select>
       <select name="Rating" id="rating-opt" value={rating} onChange={handleRating}> 
         <option value={0}>All</option>
